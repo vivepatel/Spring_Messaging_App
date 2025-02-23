@@ -1,9 +1,7 @@
 package com.messagingapp.Spring_Messaging_App;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 @RestController
 @RequestMapping
 public class HelloRestController {
@@ -16,5 +14,10 @@ public class HelloRestController {
     public String sayHello(@RequestParam(value = "name") String name)
     {
         return  "Hello"+" " + name +"!";
+    }
+    @RequestMapping(value = "/param/{name}")
+    public String sayHelloParam(@PathVariable String name)
+    {
+        return "Hello" + name + " !";
     }
 }
