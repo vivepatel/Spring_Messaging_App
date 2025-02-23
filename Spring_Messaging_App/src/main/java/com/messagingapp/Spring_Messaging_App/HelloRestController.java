@@ -3,7 +3,7 @@ package com.messagingapp.Spring_Messaging_App;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("/hello")
 public class HelloRestController {
     @RequestMapping("Hello")
     public String sayHello()
@@ -19,5 +19,10 @@ public class HelloRestController {
     public String sayHelloParam(@PathVariable String name)
     {
         return "Hello" + name + " !";
+    }
+    @PostMapping("/post")
+    public String sayHello(@RequestBody User user)
+    {
+        return "Hello " + user.getFirstName() + " " + user.getLastName() + "From BridgeLabz";
     }
 }
